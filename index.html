@@ -11,7 +11,7 @@
     <!-- 网站关键字 -->
     <meta name="keywords" content="Mavericreate,个人主页">
     <!-- 浏览器标签上显示的图标 -->
-    <link rel="icon" type="image/ico" href="//sdn.geekzu.org/avatar/4cc893d113dd74ceca73f9863f2c5446/">
+    <link rel="icon" type="image/png" href="./static/images/warhammer.png">
     <!-- 样式文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -63,12 +63,13 @@
             <div class="col-lg-4 photo-bg"></div>
             <div class="col-lg-8 card">
                 <!-- 大标题 -->
-                <h1>Mavericreate</h1>
+                <h1>Mavericreate： 旅行是人生的缩影</h1>
+                <!-- 语言切换按钮 -->
                 <!-- 标题下的一段话 -->
-                <p> 大家好，这里是唐浩天的个人介绍网站！ </p>
-                <p>我来自四川成都，目前是电子科技大学格拉斯哥学院微电子专业的大四学生，目前正在跟随Ludivico Minati教授做类脑芯片方面的研究，下面的博客网站会更新一些关于编程，集成电路设计（尤其是版图设计）相关的随笔</p>    
-                <p>我的爱好是摄影，足球，摇滚乐（尤其是midwest emo）。现在担任电子科技大学拾光摄影社社长，时不时会在学校里开讲座（或者出去拍照！）可以前往下面的页面查看我的照片展览</p>
-                <p>旅行是人生的缩影</p>
+                <p id="intro-1"> 大家好，这里是唐浩天的个人介绍网站！ </p>
+                <p id="intro-2">我来自四川成都，目前是电子科技大学格拉斯哥学院微电子专业的大四学生，目前正在跟随Ludivico Minati教授做类脑芯片方面的研究，下面的博客网站会更新一些关于编程，集成电路设计（尤其是版图设计）相关的随笔</p>    
+                <p id="intro-3">我的爱好是摄影，足球，摇滚乐（尤其是midwest emo）。现在担任电子科技大学拾光摄影社社长，时不时会在学校里开讲座（或者出去拍照！）可以前往下面的页面查看我的照片展览</p>
+                <!-- <p id="intro-4"></p> -->
                 <div class="container-fluid">
                     <div class="row">
                         <!-- 导航按钮组 -->
@@ -85,6 +86,9 @@
                         <!-- end 导航按钮组 -->
                     </div>
                 </div>
+                <button id="language-toggle" class="btn btn-outline-primary mb-3" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i> 切换语言 / Switch Language
+                </button>
                 <!-- aplayer inner -->
                 <div id="aplayer-inner" class="aplayer"></div>
                 <!-- end aplayer inner -->
@@ -126,5 +130,49 @@
     <script src="./static/layer-v3.5.1/layer/layer.js"></script>
 
     <script src="./static/main.js"></script>
+
+    <!-- 语言切换功能 -->
+    <script>
+        // 语言内容配置
+        const languageContent = {
+            chinese: {
+                'intro-1': '大家好，这里是唐浩天的个人介绍网站！',
+                'intro-2': '我来自四川成都，目前是电子科技大学格拉斯哥学院微电子专业的大四学生，目前正在跟随Ludivico Minati教授做类脑芯片方面的研究，下面的博客网站会更新一些关于编程，集成电路设计（尤其是版图设计）相关的随笔',
+                'intro-3': '我的爱好是摄影，足球，摇滚乐（尤其是midwest emo）。现在担任电子科技大学拾光摄影社社长，时不时会在学校里开讲座（或者出去拍照！）可以前往下面的页面查看我的照片展览',
+                'intro-4': '旅行是人生的缩影'
+            },
+            english: {
+                'intro-1': 'Hello everyone, this is Tang Haotian\'s personal introduction website!',
+                'intro-2': 'I am from Chengdu, Sichuan. Currently, I am a senior student majoring in Microelectronics at the University of Electronic Science and Technology of China - Glasgow College. I am currently conducting research on neuromorphic chips under the guidance of Professor Ludivico Minati. The blog website below will update some essays related to programming and integrated circuit design (especially layout design).',
+                'intro-3': 'My hobbies are photography, football, and rock music (especially midwest emo). I am currently serving as the president of the Shiguang Photography Society at the University of Electronic Science and Technology of China. I occasionally give lectures at school (or go out to take photos!). You can visit the page below to view my photo exhibition.',
+                'intro-4': 'Travel is the epitome of life'
+            }
+        };
+
+        let currentLanguage = 'chinese';
+
+        function toggleLanguage() {
+            const newLanguage = currentLanguage === 'chinese' ? 'english' : 'chinese';
+            const content = languageContent[newLanguage];
+            
+            // 更新所有介绍段落的内容
+            Object.keys(content).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = content[id];
+                }
+            });
+            
+            // 更新按钮文本
+            const button = document.getElementById('language-toggle');
+            if (newLanguage === 'english') {
+                button.innerHTML = '<i class="fas fa-language"></i> 切换为中文 / Switch to Chinese';
+            } else {
+                button.innerHTML = '<i class="fas fa-language"></i> 切换语言 / Switch Language';
+            }
+            
+            currentLanguage = newLanguage;
+        }
+    </script>
 
 </html>
