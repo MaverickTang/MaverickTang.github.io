@@ -1,3 +1,10 @@
 # mavericreate.github.com
 My website
-https://mavericktang.github.io/mavericreate/
+https://mavericreate.top
+
+大家好，这里是唐浩天的个人介绍网站！
+
+我来自四川成都，目前是电子科技大学格拉斯哥学院微电子专业的大四学生，目前正在跟随Ludivico Minati教授做类脑芯片方面的研究，下面的博客网站会更新一些关于编程，集成电路设计（尤其是版图设计）相关的随笔
+
+我的爱好是摄影，足球，摇滚乐（尤其是midwest emo）。现在担任电子科技大学拾光摄影社社长，时不时会在学校里开讲座（或者出去拍照！）可以前往下面的页面查看我的照片展览
+
